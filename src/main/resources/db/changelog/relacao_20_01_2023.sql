@@ -1,0 +1,2 @@
+ALTER TABLE `usuario` ADD CONSTRAINT `fk_endereco` FOREIGN KEY (endereco_id) REFERENCES `endereco`(id);
+ALTER TABLE `endereco` ADD CONSTRAINT `fk_usuario` FOREIGN KEY (usuario_id) REFERENCES `usuario`(id);
