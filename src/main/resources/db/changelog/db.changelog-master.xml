@@ -5,16 +5,49 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet id="cria-tabela-usuario" author="Leo">
+    <changeSet id="cria-tabela-usario" author="Leo">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="usuario"/>
+            </not>
+        </preConditions>
         <sqlFile path="changelog/usuario.sql" relativeToChangelogFile="true"/>
     </changeSet>
     <changeSet id="cria-tabela-loja" author="Leo">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="loja"/>
+            </not>
+        </preConditions>
         <sqlFile path="changelog/loja.sql" relativeToChangelogFile="true"/>
     </changeSet>
     <changeSet id="relacoes" author="Leo">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="endereco"/>
+            </not>
+        </preConditions>
         <sqlFile path="changelog/relacao.sql" relativeToChangelogFile="true"/>
     </changeSet>
     <changeSet id="relacoes_20_01_2023" author="Leo">
         <sqlFile path="changelog/relacao_20_01_2023.sql" relativeToChangelogFile="true"/>
     </changeSet>
+    <changeSet id="update_tables_language_25_01_2023" author="Mattz">
+        <preConditions onFail="MARK_RAN">
+                <tableExists tableName="usuario"/>
+                <tableExists tableName="loja"/>
+                <tableExists tableName="endereco"/>
+        </preConditions>
+        <sqlFile path="changelog/update_tables_language.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="update_user_adress_relation" author="Mattz">
+        <preConditions onFail="MARK_RAN">
+            <columnExists tableName="user" columnName="fk_adress"/>
+            <not>
+                <columnExists tableName="adress" columnName="fk_user"/>
+            </not>
+        </preConditions>
+        <sqlFile path="changelog/update_user_adress_relation.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
 </databaseChangeLog>

@@ -1,5 +1,5 @@
 
-CREATE TABLE endereco (
+CREATE TABLE  endereco (
                           id BIGINT NOT NULL AUTO_INCREMENT,
                           cep VARCHAR(255) NOT NULL,
                           numero INTEGER NOT NULL,
