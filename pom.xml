@@ -67,6 +67,12 @@
             <version>5.4.0</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>de.mkammerer</groupId>
+            <artifactId>argon2-jvm</artifactId>
+            <version>2.7</version>
+        </dependency>
     </dependencies>
 
     <build>

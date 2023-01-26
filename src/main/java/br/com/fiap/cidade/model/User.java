@@ -35,9 +35,13 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    @OneToMany(mappedBy = "user")
-    private List<Adress> adresses;
+//    @OneToMany(mappedBy = "user")
+//    private List<Adress> adresses;
 
     @Column(name = "image")
     private String image;
+
+    @Lob
+    @Column(name = "password")
+    private byte[] password;
 }

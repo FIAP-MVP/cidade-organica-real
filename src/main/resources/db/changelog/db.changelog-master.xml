@@ -50,4 +50,20 @@
         <sqlFile path="changelog/update_user_adress_relation.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="add_password_user" author="Mattz">
+        <sqlFile path="changelog/add_password_user.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="update_image_nullability" author="Mattz">
+        <sqlFile path="changelog/update_image_nullability.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="update_user_phone_size" author="Mattz">
+        <sqlFile path="changelog/update_user_phone_size.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="update_user_image_datatype" author="Mattz">
+        <sqlFile path="changelog/update_user_image_datatype.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
 </databaseChangeLog>
