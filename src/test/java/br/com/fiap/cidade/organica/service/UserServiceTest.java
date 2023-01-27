@@ -80,7 +80,7 @@ class UserServiceTest {
                 .cpf("111.111.111-11")
                 .email("legendary.barney@gmail.com")
                 .phone("11 11234-5678")
-                .password("c2VuaGExMjNA".getBytes())
+                .password("c2VuaGExMjNA")
                 .build();
     }
 }

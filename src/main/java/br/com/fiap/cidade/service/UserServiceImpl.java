@@ -2,20 +2,26 @@ package br.com.fiap.cidade.service;
 
 import br.com.fiap.cidade.model.User;
 import br.com.fiap.cidade.repository.UserRepository;
-import de.mkammerer.argon2.Argon2;
+import br.com.fiap.cidade.utils.Argon2;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import de.mkammerer.argon2.Argon2Factory;
+import java.security.SecureRandom;
 
 
 import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository repository;
+
+    @Value("${salt.length}")
+    private int SALT_LENGTH;
 
     public UserServiceImpl(UserRepository repository) {
         this.repository = repository;
@@ -28,9 +34,13 @@ public class UserServiceImpl implements UserService {
     }
 
     private String encryptPassword(String password) {
-        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-        String hash = argon2.hash(12, 65536, 1, password);
-        return hash;
+        char[] passwordArray = password.toCharArray();
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[SALT_LENGTH];
+        random.nextBytes(salt);
+        byte[] hashPassword = Argon2.hash(passwordArray, salt);
+        String base64EncodedPassword = Base64.getEncoder().encodeToString(hashPassword);
+        return base64EncodedPassword;
     }
 
     @Override
