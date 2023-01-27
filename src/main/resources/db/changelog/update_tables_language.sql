@@ -1,0 +1,32 @@
+ALTER TABLE loja RENAME TO store;
+
+ALTER TABLE store
+CHANGE COLUMN nome name VARCHAR(60) NOT NULL,
+CHANGE COLUMN endereco_id address_id BIGINT;
+
+
+ALTER TABLE endereco RENAME TO address;
+
+ALTER TABLE address
+CHANGE COLUMN cep zip_code VARCHAR(255) NOT NULL,
+CHANGE COLUMN numero number INTEGER NOT NULL,
+CHANGE COLUMN complemento complement VARCHAR(255) NOT NULL,
+CHANGE COLUMN cidade city VARCHAR(255) NOT NULL,
+CHANGE COLUMN rua street VARCHAR(255) NOT NULL,
+CHANGE COLUMN identificador identifier VARCHAR(255) NOT NULL,
+CHANGE COLUMN usuario_id user_id BIGINT NOT NULL;
+
+
+ALTER TABLE usuario RENAME TO user;
+
+ALTER TABLE user
+CHANGE COLUMN nome name VARCHAR(255) NOT NULL,
+CHANGE COLUMN sobrenome last_name VARCHAR(255) NOT NULL,
+CHANGE COLUMN telefone phone VARCHAR(10) NOT NULL,
+CHANGE COLUMN endereco_id address_id BIGINT;
+
+
+ALTER TABLE `user` DROP FOREIGN KEY `fk_endereco`;
+ALTER TABLE `address` DROP FOREIGN KEY `fk_usuario`;
+
+ALTER TABLE `user` ADD CONSTRAINT `fk_address` FOREIGN KEY (address_id) REFERENCES `address`(id);

@@ -1,0 +1,1 @@
+ALTER TABLE user CHANGE COLUMN phone phone VARCHAR(15);

@@ -1,0 +1,1 @@
+ALTER TABLE user CHANGE COLUMN image image BLOB;

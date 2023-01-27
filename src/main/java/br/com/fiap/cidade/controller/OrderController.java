@@ -1,4 +1,4 @@
 package br.com.fiap.cidade.controller;
 
-public class CategoriaController {
+public class OrderController {
 }

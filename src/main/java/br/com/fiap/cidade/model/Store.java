@@ -6,20 +6,22 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Table(name = "loja")
-public class Loja {
+@Table(name = "store")
+public class Store {
     @Column(name = "id")
     @Id
-    Long id;
+    private Long id;
 
     @Column(name = "cnpj")
-    String cnpj;
+    private String cnpj;
 
-    @Column(name = "endereco")
-    Endereco endereco;
-    @Column(name = "nome")
-    String nome;
+    @Column(name = "adress")
+    private Adress adress;
+
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "image")
-    String image;
+    private String image;
 
 }
