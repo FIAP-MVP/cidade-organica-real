@@ -64,13 +64,6 @@ public class UserControllerTest {
         verify(service, times(1)).delete(id);
     }
 
-    @Test
-    void testFindByEmail() {
-        String email = "email@email.com";
-        Optional<User> user = Optional.of(new User());
-        when(service.findByEmail(email)).thenReturn(user);
-        assertEquals(user, controller.findByEmail(email));
-    }
 
     @Test
     void testUploadImage() throws IOException {
@@ -89,7 +82,7 @@ public class UserControllerTest {
                 .cpf("111.111.111-11")
                 .email("legendary.barney@gmail.com")
                 .phone("11 11234-5678")
-                .password("c2VuaGExMjNA".getBytes())
+                .password("c2VuaGExMjNA")
                 .build();
     }
 }

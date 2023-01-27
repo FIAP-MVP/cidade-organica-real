@@ -3,6 +3,7 @@ package br.com.fiap.cidade.service;
 import br.com.fiap.cidade.model.User;
 import br.com.fiap.cidade.repository.UserRepository;
 import de.mkammerer.argon2.Argon2;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import de.mkammerer.argon2.Argon2Factory;
 
@@ -26,12 +27,10 @@ public class UserServiceImpl implements UserService {
         return repository.save(user);
     }
 
-    private byte[] encryptPassword(byte[] password) {
-        byte[] passwordBytes = password;
+    private String encryptPassword(String password) {
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-        String hash = argon2.hash(12, 65536, 1, passwordBytes);
-        Arrays.fill(passwordBytes, (byte) 0);// limpa o array de bytes após a criptografia
-        return hash.getBytes(StandardCharsets.UTF_8);
+        String hash = argon2.hash(12, 65536, 1, password);
+        return hash;
     }
 
     @Override
@@ -63,13 +62,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User uploadImage(Long id, String image) {
-        User user = repository.findById(Math.toIntExact(id)).orElse(null);
-        if (user != null) {
-            user.setImage(image);
-            return repository.save(user);
-        } else {
-            return null;
-        }
+        User user = repository.findById(Math.toIntExact(id)).orElseThrow(() -> new EntityNotFoundException("User not found"));
+        user.setImage(image);
+        return repository.save(user);
     }
 
 }
