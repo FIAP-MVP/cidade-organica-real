@@ -24,6 +24,7 @@ public class AuthenticationService {
 
     private final AuthenticationManager authenticationManager;
     public AuthenticationResponse register(RegisterRequest request) {
+        validateUser(request);
         var user = User.builder()
                 .name(request.getName())
                 .lastName(request.getLastName())
@@ -53,5 +54,14 @@ public class AuthenticationService {
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
+    }
+
+    private void validateUser(RegisterRequest user){
+        if(repository.findByEmail(user.getEmail()).isPresent()){
+            throw new IllegalArgumentException("Email já cadastrado");
+        }
+        if(repository.findByCpf(user.getCpf()).isPresent()){
+            throw new IllegalArgumentException("Cpf já cadastrado");
+        }
     }
 }
