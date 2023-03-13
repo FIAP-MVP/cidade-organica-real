@@ -66,4 +66,8 @@
         <sqlFile path="changelog/update_user_image_datatype.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="add_role_user" author="Mattz">
+        <sqlFile path="changelog/add_role_user.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
 </databaseChangeLog>
