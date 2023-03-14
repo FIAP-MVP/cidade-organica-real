@@ -44,7 +44,7 @@
         <preConditions onFail="MARK_RAN">
             <columnExists tableName="user" columnName="fk_adress"/>
             <not>
-                <columnExists tableName="adress" columnName="fk_user"/>
+                <columnExists tableName="address" columnName="fk_user"/>
             </not>
         </preConditions>
         <sqlFile path="changelog/update_user_adress_relation.sql" relativeToChangelogFile="true"/>
@@ -64,6 +64,10 @@
 
     <changeSet id="update_user_image_datatype" author="Mattz">
         <sqlFile path="changelog/update_user_image_datatype.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="add_role_user" author="Mattz">
+        <sqlFile path="changelog/add_role_user.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
 </databaseChangeLog>

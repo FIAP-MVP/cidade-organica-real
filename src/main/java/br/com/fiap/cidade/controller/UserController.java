@@ -2,6 +2,7 @@ package br.com.fiap.cidade.controller;
 
 import br.com.fiap.cidade.model.User;
 import br.com.fiap.cidade.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,11 +22,6 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @PostMapping
-    public ResponseEntity create(@RequestBody User user) {
-        service.create(user);
-        return new ResponseEntity(HttpStatus.OK);
-    }
 
     @PutMapping
     public ResponseEntity<User> update(@RequestBody User user) {
@@ -62,9 +58,15 @@ public class UserController {
 
 
     @PatchMapping("/uploadImage")
-    public ResponseEntity uploadImage(@RequestParam("image") MultipartFile image, @RequestParam("id") Long id) throws IOException {
-        String imageBase64 = Base64.getEncoder().encodeToString(image.getBytes());
-        service.uploadImage(id,imageBase64);
-        return new ResponseEntity(HttpStatus.OK);
+    public ResponseEntity<Void> uploadImage(HttpServletRequest request, @RequestParam("image") MultipartFile image) throws IOException {
+        try {
+            String authHeader = request.getHeader("Authorization");
+            String jwt = authHeader.substring(7);
+            String imageBase64 = Base64.getEncoder().encodeToString(image.getBytes());
+            service.uploadImage(jwt,imageBase64);
+            return ResponseEntity.ok().build();
+        } catch (NoSuchElementException nsee) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
