@@ -1,13 +1,13 @@
 package br.com.fiap.cidade.service;
 
-import br.com.fiap.cidade.config.JwtService;
 import br.com.fiap.cidade.dto.auth.AuthenticationRequest;
 import br.com.fiap.cidade.dto.auth.AuthenticationResponse;
 import br.com.fiap.cidade.dto.auth.RegisterRequest;
-import br.com.fiap.cidade.model.Adress;
+import io.jsonwebtoken.Jwts;
 import br.com.fiap.cidade.model.Role;
 import br.com.fiap.cidade.model.User;
 import br.com.fiap.cidade.repository.UserRepository;
+import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -36,7 +36,9 @@ public class AuthenticationService {
                 .build();
 
         repository.save(user);
-        var jwtToken = jwtService.generateToken(user);
+        Claims claims = Jwts.claims();
+        claims.put("userId", user.getId());
+        var jwtToken = jwtService.generateToken(claims,user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
@@ -50,7 +52,9 @@ public class AuthenticationService {
                 )
         );
         var user = repository.findByEmail(request.getEmail()).orElseThrow();
-        var jwtToken = jwtService.generateToken(user);
+        Claims claims = Jwts.claims();
+        claims.put("userId", user.getId());
+        var jwtToken = jwtService.generateToken(claims,user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();

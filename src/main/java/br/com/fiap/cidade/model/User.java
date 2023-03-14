@@ -1,5 +1,6 @@
 package br.com.fiap.cidade.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,7 +40,8 @@ public class  User implements UserDetails {
     @Column(name = "phone")
     private String phone;
 
-    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="user")
     private List<Adress> adresses;
 
     @Column(name = "image")

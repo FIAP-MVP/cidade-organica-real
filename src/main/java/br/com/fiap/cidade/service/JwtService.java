@@ -1,5 +1,7 @@
-package br.com.fiap.cidade.config;
+package br.com.fiap.cidade.service;
 
+import br.com.fiap.cidade.model.User;
+import br.com.fiap.cidade.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -13,13 +15,19 @@ import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
 @Service
 public class JwtService {
 
-    @Value("${JWT_KEY}")
-    private String SECRET_KEY;
+
+    private static String SECRET_KEY;
+
+    @Value("${jwt.key}")
+    public void setSecretKey(String secretKey) {
+        SECRET_KEY = secretKey;
+    }
 
     public String extractUsername(String token){
         return extractClaim(token,Claims::getSubject);
@@ -30,10 +38,11 @@ public class JwtService {
         return claimsResolver.apply(claims);
     }
 
-    public String generateToken(UserDetails userDetails){
-        return generateToken(new HashMap<>(), userDetails);
+    public String generateToken(Claims claims,UserDetails userDetails){
+        return generateToken(new HashMap<>(claims), userDetails);
     }
     public String generateToken(Map<String,Object> extraClaims, UserDetails userDetails) {
+
         return Jwts
                 .builder()
                 .setClaims(extraClaims)
@@ -69,5 +78,19 @@ public class JwtService {
     private Key getSignInKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
         return Keys.hmacShaKeyFor(keyBytes);
+    }
+
+    public Long getUserIdFromToken(String token) {
+        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
+
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(Keys.hmacShaKeyFor(keyBytes))
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+
+        // Obtem o valor do atributo userId do objeto Claims
+        Long userId =claims.get("userId", Long.class);
+        return Long.valueOf(userId);
     }
 }

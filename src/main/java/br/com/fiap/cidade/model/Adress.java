@@ -1,15 +1,17 @@
 package br.com.fiap.cidade.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
 @Table(name = "address")
 public class Adress {
@@ -37,8 +39,10 @@ public class Adress {
     @Column(name = "identifier")
     private String identifier;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
+
+    @JsonBackReference
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 
 }

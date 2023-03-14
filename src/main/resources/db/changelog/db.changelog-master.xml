@@ -44,7 +44,7 @@
         <preConditions onFail="MARK_RAN">
             <columnExists tableName="user" columnName="fk_adress"/>
             <not>
-                <columnExists tableName="adress" columnName="fk_user"/>
+                <columnExists tableName="address" columnName="fk_user"/>
             </not>
         </preConditions>
         <sqlFile path="changelog/update_user_adress_relation.sql" relativeToChangelogFile="true"/>

@@ -1,5 +1,6 @@
 package br.com.fiap.cidade.config;
 
+import br.com.fiap.cidade.service.JwtService;
 import io.micrometer.common.lang.NonNull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
