@@ -25,7 +25,6 @@ public class Store {
     @Column(name = "cnpj")
     private String cnpj;
 
-    @JsonManagedReference
     @OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="store")
     private Adress address;
 
