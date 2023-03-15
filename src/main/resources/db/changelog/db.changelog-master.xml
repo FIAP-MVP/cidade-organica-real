@@ -70,4 +70,14 @@
         <sqlFile path="changelog/add_role_user.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="delete_old_store_table" author="Mattz">
+        <sqlFile path="changelog/delete_old_store_table.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="create_store_order" author="Mattz">
+        <sqlFile path="changelog/create_store_order.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+
+
 </databaseChangeLog>
