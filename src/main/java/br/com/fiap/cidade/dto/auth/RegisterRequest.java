@@ -20,8 +20,6 @@ public class RegisterRequest {
     private String cpf;
     private String email;
     private String phone;
-    private List<Adress> adresses;
-    private String image;
     private String password;
 
 
