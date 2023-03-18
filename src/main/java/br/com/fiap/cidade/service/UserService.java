@@ -1,12 +1,13 @@
 package br.com.fiap.cidade.service;
 
+import br.com.fiap.cidade.dto.UserDTO;
 import br.com.fiap.cidade.model.User;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
-    User update(User user);
+    User update(Long id, UserDTO newUser) throws IllegalAccessException;
     User findById(Long id);
     List<User> findAll();
     void delete(Long id);

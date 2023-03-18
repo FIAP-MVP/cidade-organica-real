@@ -82,4 +82,12 @@
         <sqlFile path="changelog/change_address_not_null_reference.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="add_description_store" author="Mattz">
+        <sqlFile path="changelog/add_description_store.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="add_stock_product" author="Mattz">
+        <sqlFile path="changelog/add_stock_product.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
 </databaseChangeLog>

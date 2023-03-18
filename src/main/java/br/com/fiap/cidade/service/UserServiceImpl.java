@@ -1,5 +1,7 @@
 package br.com.fiap.cidade.service;
 
+import br.com.fiap.cidade.dto.UserDTO;
+import br.com.fiap.cidade.model.Store;
 import br.com.fiap.cidade.model.User;
 import br.com.fiap.cidade.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -9,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,14 +32,26 @@ public class UserServiceImpl extends JwtService implements UserService {
     }
 
     @Override
-    public User update(User user) {
+    public User update(Long id,UserDTO newUser) throws IllegalAccessException {
+
+        User user = findById(id);
+        Class<?> userDTO = user.getClass();
+        Field[] fields = userDTO.getFields();
+        for(Field field : fields){
+            field.setAccessible(true);
+            Object value = field.get(userDTO);
+            if (value != null) {
+                field.set(user, value);
+            }
+        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return repository.save(user);
     }
 
+
     @Override
     public User findById(Long id) {
-        return repository.findById(Math.toIntExact(id)).orElse(null);
+        return repository.findById(Math.toIntExact(id)).orElseThrow(() -> new EntityNotFoundException("User not found"));
     }
 
 
@@ -58,7 +73,7 @@ public class UserServiceImpl extends JwtService implements UserService {
     @Override
     public User uploadImage(String token, String image) {
         Long userId = getUserIdFromToken(token);
-        User user = repository.findById(Math.toIntExact(userId)).orElseThrow(() -> new EntityNotFoundException("User not found"));
+        User user = findById(userId);
         user.setImage(image);
         return repository.save(user);
     }
