@@ -10,7 +10,7 @@ public interface StoreService {
     Store create(Store address);
 
 
-    Store update(Long id, StoreDTO newAdress) throws IllegalAccessException;
+    Store update(String token, StoreDTO newAdress) throws IllegalAccessException;
 
     Store findById(Long id);
 

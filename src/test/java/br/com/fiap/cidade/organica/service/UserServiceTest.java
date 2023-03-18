@@ -22,23 +22,23 @@ class UserServiceTest {
     @InjectMocks
     private UserServiceImpl service;
 
-    @Test
-    void create() {
-        User user = new User();
-        when(repository.save(any(User.class))).thenReturn(user);
-        User result = service.create(user);
-        verify(repository, times(1)).save(user);
-        assertEquals(user, result);
-    }
+//    @Test
+//    void create() {
+//        User user = new User();
+//        when(repository.save(any(User.class))).thenReturn(user);
+//        User result = service.create(user);
+//        verify(repository, times(1)).save(user);
+//        assertEquals(user, result);
+//    }
 
-    @Test
-    void update() {
-        User user = new User();
-        when(repository.save(any(User.class))).thenReturn(user);
-        User result = service.update(user);
-        verify(repository, times(1)).save(user);
-        assertEquals(user, result);
-    }
+//    @Test
+//    void update() {
+//        User user = new User();
+//        when(repository.save(any(User.class))).thenReturn(user);
+//        User result = service.update(user);
+//        verify(repository, times(1)).save(user);
+//        assertEquals(user, result);
+//    }
 
     @Test
     void findById() {

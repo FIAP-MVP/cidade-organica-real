@@ -32,19 +32,12 @@ public class UserServiceImpl extends JwtService implements UserService {
     }
 
     @Override
-    public User update(Long id,UserDTO newUser) throws IllegalAccessException {
-
-        User user = findById(id);
-        Class<?> userDTO = user.getClass();
-        Field[] fields = userDTO.getFields();
-        for(Field field : fields){
-            field.setAccessible(true);
-            Object value = field.get(userDTO);
-            if (value != null) {
-                field.set(user, value);
-            }
+    public User update(String token, UserDTO newUser) throws IllegalAccessException {
+        Long userId = getUserIdFromToken(token);
+        User user = findById(userId);
+        if(newUser.getEmail() != null){
+            user.setEmail(newUser.getEmail());
         }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return repository.save(user);
     }
 

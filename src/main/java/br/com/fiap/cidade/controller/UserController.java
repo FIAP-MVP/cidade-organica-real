@@ -1,5 +1,6 @@
 package br.com.fiap.cidade.controller;
 
+import br.com.fiap.cidade.dto.UserDTO;
 import br.com.fiap.cidade.model.User;
 import br.com.fiap.cidade.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,8 +25,10 @@ public class UserController {
 
 
     @PutMapping
-    public ResponseEntity<User> update(@RequestBody User user) {
-        return new ResponseEntity<>(service.update(user), HttpStatus.OK);
+    public ResponseEntity<User> update(HttpServletRequest request,@RequestBody UserDTO user) throws IllegalAccessException {
+        String authHeader = request.getHeader("Authorization");
+        String jwt = authHeader.substring(7);
+        return new ResponseEntity<>(service.update(jwt,user), HttpStatus.OK);
     }
 
 

@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 @Service
-public class StoreServiceImpl implements StoreService{
+public class StoreServiceImpl  extends JwtService implements StoreService{
 
     private final StoreRepository repository;
 
@@ -26,8 +26,9 @@ public class StoreServiceImpl implements StoreService{
 
 
     @Override
-    public Store update(Long id, StoreDTO newAdress) throws IllegalAccessException {
-        Store store = findById(id);
+    public Store update(String token, StoreDTO newAdress) throws IllegalAccessException {
+        Long userId = getUserIdFromToken(token);
+        Store store = findById(userId);
         Class<?> storeDTO = store.getClass();
         Field[] fields = storeDTO.getFields();
         for(Field field : fields){

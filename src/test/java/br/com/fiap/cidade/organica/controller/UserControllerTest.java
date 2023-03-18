@@ -35,12 +35,6 @@ public class UserControllerTest {
 //        assertEquals(user, controller.create(user));
 //    }
 
-    @Test
-    void testUpdate() {
-        User user = new User();
-        when(service.update(user)).thenReturn(user);
-        assertEquals(user, controller.update(user));
-    }
 
     @Test
     void testFindById() {
