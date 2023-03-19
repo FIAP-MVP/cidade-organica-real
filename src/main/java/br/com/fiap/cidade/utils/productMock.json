@@ -1,0 +1,248 @@
+[
+  {
+    "id": 1,
+    "name": "Mel orgânico",
+    "description": "Mel produzido de maneira sustentável e sem agrotóxicos",
+    "price": 15.50,
+    "image": "https://example.com/images/mel_organico.jpg",
+    "stock": 100,
+    "categories": [
+      {
+        "id": 1,
+        "name": "Produtos Naturais"
+      }
+    ],
+    "store": {
+      "id": 1,
+      "name": "Mercado Verde"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Geleia de frutas vermelhas",
+    "description": "Geleia produzida com frutas orgânicas colhidas na agricultura familiar",
+    "price": 10.90,
+    "image": "https://example.com/images/geleia_familia.jpg",
+    "stock": 50,
+    "categories": [
+      {
+        "id": 1,
+        "name": "Produtos Naturais"
+      }
+    ],
+    "store": {
+      "id": 2,
+      "name": "Feira Agroecológica"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Queijo artesanal",
+    "description": "Queijo produzido de maneira artesanal com leite de vacas criadas soltas na pastagem",
+    "price": 22.00,
+    "image": "https://example.com/images/queijo_artesanal.jpg",
+    "stock": 30,
+    "categories": [
+      {
+        "id": 2,
+        "name": "Agricultura Familiar"
+      }
+    ],
+    "store": {
+      "id": 3,
+      "name": "Queijaria da Roça"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Pão integral",
+    "description": "Pão integral produzido com farinha orgânica e fermentação natural",
+    "price": 6.50,
+    "image": "https://example.com/images/pao_integral.jpg",
+    "stock": 80,
+    "categories": [
+      {
+        "id": 1,
+        "name": "Produtos Naturais"
+      }
+    ],
+    "store": {
+      "id": 4,
+      "name": "Padaria Artesanal"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Tomate orgânico",
+    "description": "Tomate produzido de maneira sustentável e sem agrotóxicos",
+    "price": 3.20,
+    "image": "https://example.com/images/tomate_organico.jpg",
+    "stock": 120,
+    "categories": [
+      {
+        "id": 2,
+        "name": "Agricultura Familiar"
+      }
+    ],
+    "store": {
+      "id": 5,
+      "name": "Hortifruti da Roça"
+    }
+  },
+  {    "id": 16,    "name": "Queijo minas artesanal",    "description": "Queijo minas artesanal produzido por pequenos produtores da região.",    "price": 25.0,    "image": "https://example.com/queijo-minas.jpg",    "stock": 10,    "categories": [      {        "id": 3,        "name": "Queijos"      },      {        "id": 4,        "name": "Produtos artesanais"      }    ],
+    "store": {
+      "id": 2,
+      "name": "Empório da Roça",
+      "address": "Rua das Flores, 123",
+      "city": "São Paulo",
+      "state": "SP"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Geleia de frutas vermelhas",
+    "description": "Geleia de frutas vermelhas feita com frutas frescas e sem adição de conservantes.",
+    "price": 15.0,
+    "image": "https://example.com/geleia-frutas-vermelhas.jpg",
+    "stock": 20,
+    "categories": [
+      {
+        "id": 5,
+        "name": "Geleias"
+      },
+      {
+        "id": 6,
+        "name": "Produtos naturais"
+      }
+    ],
+    "store": {
+      "id": 3,
+      "name": "Sítio das Frutas",
+      "address": "Estrada da Roça, s/n",
+      "city": "Belo Horizonte",
+      "state": "MG"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Tomate Orgânico",
+    "description": "Tomate orgânico cultivado sem agrotóxicos.",
+    "price": 5.99,
+    "image": "https://images.unsplash.com/photo-1577652468679-b9b022cecb79",
+    "stock": 100,
+    "categories": [
+      {
+        "id": 1,
+        "name": "Frutas e Verduras"
+      },
+      {
+        "id": 3,
+        "name": "Orgânicos"
+      }
+    ],
+    "store": {
+      "id": 1,
+      "name": "Feira da Agricultura Familiar",
+      "address": "Rua da Agricultura, 123",
+      "city": "São Paulo",
+      "state": "SP"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Café Orgânico",
+    "description": "Café orgânico produzido em pequenas propriedades familiares.",
+    "price": 14.99,
+    "image": "https://images.unsplash.com/photo-1531973576160-5a810fda9663",
+    "stock": 80,
+    "categories": [
+      {
+        "id": 5,
+        "name": "Cafés"
+      },
+      {
+        "id": 3,
+        "name": "Orgânicos"
+      }
+    ],
+    "store": {
+      "id": 3,
+      "name": "Associação dos Agricultores Familiares",
+      "address": "Rua da Agricultura, 789",
+      "city": "Curitiba",
+      "state": "PR"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Alface Americana",
+    "description": "Alface americana cultivada de forma orgânica em agricultura familiar",
+    "price": 2.99,
+    "image": "https://cdn.pixabay.com/photo/2021/09/14/15/07/lettuce-6626015_960_720.jpg",
+    "stock": 50,
+    "categories": [
+      {
+        "id": 1,
+        "name": "Verduras e Legumes"
+      },
+      {
+        "id": 2,
+        "name": "Produtos Orgânicos"
+      }
+    ],
+    "store": {
+      "id": 1,
+      "name": "Feira da Agricultura Familiar",
+      "address": "Rua das Flores, 123",
+      "phone": "+55 (11) 1234-5678"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Brócolis",
+    "description": "Brócolis cultivado de forma orgânica em agricultura familiar",
+    "price": 4.99,
+    "image": "https://cdn.pixabay.com/photo/2017/08/08/08/15/broccoli-2610967_960_720.jpg",
+    "stock": 30,
+    "categories": [
+      {
+        "id": 1,
+        "name": "Verduras e Legumes"
+      },
+      {
+        "id": 2,
+        "name": "Produtos Orgânicos"
+      }
+    ],
+    "store": {
+      "id": 1,
+      "name": "Feira da Agricultura Familiar",
+      "address": "Rua das Flores, 123",
+      "phone": "+55 (11) 1234-5678"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Maçã Gala",
+    "description": "Maçãs gala cultivadas de forma orgânica em agricultura familiar",
+    "price": 6.99,
+    "image": "https://cdn.pixabay.com/photo/2016/11/22/18/52/apple-1851464_960_720.jpg",
+    "stock": 20,
+    "categories": [
+      {
+        "id": 3,
+        "name": "Frutas"
+      },
+      {
+        "id": 2,
+        "name": "Produtos Orgânicos"
+      }
+    ],
+    "store": {
+      "id": 2,
+      "name": "Mercado da Agricultura Familiar",
+      "address": "Avenida das Árvores, 456",
+      "phone": "+55 (11) 9876-5432"
+    }
+  }
+]
