@@ -40,6 +40,7 @@ public class AuthenticationService {
         claims.put("userId", user.getId());
         var jwtToken = jwtService.generateToken(claims,user);
         return AuthenticationResponse.builder()
+                .name(request.getName())
                 .token(jwtToken)
                 .build();
     }
@@ -56,6 +57,7 @@ public class AuthenticationService {
         claims.put("userId", user.getId());
         var jwtToken = jwtService.generateToken(claims,user);
         return AuthenticationResponse.builder()
+                .name(user.getName())
                 .token(jwtToken)
                 .build();
     }
