@@ -24,9 +24,10 @@ public class Store {
     @Column(name = "cnpj")
     private String cnpj;
 
+    @Column(name = "description")
+    private String description;
     @OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="store")
     private Adress address;
-
     @Column(name = "name")
     private String name;
 

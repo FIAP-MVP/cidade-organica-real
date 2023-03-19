@@ -2,6 +2,7 @@ package br.com.fiap.cidade.service;
 
 import br.com.fiap.cidade.dto.StoreDTO;
 import br.com.fiap.cidade.model.Store;
+import br.com.fiap.cidade.model.User;
 import br.com.fiap.cidade.repository.StoreRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -20,26 +21,29 @@ public class StoreServiceImpl  extends JwtService implements StoreService{
 
 
     @Override
-    public Store create(Store store) {
+    public Store create(StoreDTO storeDTO) {
+        Store store = new Store();
+        store.setName(storeDTO.getName());
+        store.setCnpj(storeDTO.getCnpj());
+        store.setDescription(storeDTO.getDescription());
         return repository.save(store);
     }
 
 
     @Override
-    public Store update(String token, StoreDTO newAdress) throws IllegalAccessException {
-        Long userId = getUserIdFromToken(token);
-        Store store = findById(userId);
-        Class<?> storeDTO = store.getClass();
-        Field[] fields = storeDTO.getFields();
-        for(Field field : fields){
-            field.setAccessible(true);
-            Object value = field.get(storeDTO);
-            if (value != null) {
-                field.set(store, value);
-            }
+    public Store update(Long id, StoreDTO newStore) throws IllegalAccessException {
+        Store store = findById(id);
+        if((!newStore.getName().equals(store.getName()))&& (newStore.getName() != null)){
+            store.setName(newStore.getName());
         }
-
+        if((!newStore.getCnpj().equals(store.getCnpj()))&& (newStore.getCnpj() != null)){
+            store.setCnpj(newStore.getCnpj());
+        }
+        if((!newStore.getDescription().equals(store.getDescription()))&& (newStore.getDescription() != null)){
+            store.setDescription(newStore.getDescription());
+        }
         return repository.save(store);
+
     }
 
     @Override
@@ -55,5 +59,12 @@ public class StoreServiceImpl  extends JwtService implements StoreService{
     @Override
     public void delete(Long id) {
         repository.deleteById(Math.toIntExact(id));
+    }
+
+    @Override
+    public Store uploadImage(Long id, String image) {
+        Store store = findById(id);
+        store.setImage(image);
+        return repository.save(store);
     }
 }

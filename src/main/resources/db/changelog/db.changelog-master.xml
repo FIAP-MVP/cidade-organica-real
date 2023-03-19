@@ -90,4 +90,8 @@
         <sqlFile path="changelog/add_stock_product.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="change_store_address_not_null" author="Mattz">
+        <sqlFile path="changelog/change_store_address_not_null.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
 </databaseChangeLog>
