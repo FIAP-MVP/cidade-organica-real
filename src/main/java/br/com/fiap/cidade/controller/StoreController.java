@@ -76,6 +76,10 @@ public class StoreController {
         }
     }
 
+    // CRUD PRODUCT
+
+
+
 
     //todo Add product crud
     //todo Add category crud
