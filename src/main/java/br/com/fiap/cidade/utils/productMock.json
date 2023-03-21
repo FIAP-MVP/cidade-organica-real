@@ -1,85 +1,22 @@
 [
   {
-    "id": 8,
-    "name": "Feira da Agricultura Familiar",
-    "address": "Rua da Agricultura, 514",
-    "city": "São Paulo",
-    "phone": "+55 (11) 5146-7684",
-    "products": [
-      {
-        "id": 8,
-        "name": "Tomate Cereja Orgânico",
-        "description": "Tomate cereja orgânico cultivado sem agrotóxicos.",
-        "price": 5.99,
-        "image": "https://drive.google.com/file/d/1QGLMORGCSafLJW4TKmSTU0yhmzsw5k3j/view?usp=share_link",
-        "stock": 100,
-        "categories": [
-          {
-            "id": 1,
-            "name": "Frutas e Verduras"
-          },
-          {
-            "id": 3,
-            "name": "Orgânicos"
-          }
-        ]
-      },
-      {
-        "id": 10,
-        "name": "Alface Americana",
-        "description": "Alface americana cultivada de forma orgânica em agricultura familiar",
-        "price": 2.99,
-        "image": "https://drive.google.com/file/d/1xTHRpKhmmW1Y-uKpltQ0T30S_LlFWufp/view?usp=share_link",
-        "stock": 50,
-        "categories": [
-          {
-            "id": 1,
-            "name": "Verduras e Legumes"
-          },
-          {
-            "id": 2,
-            "name": "Produtos Orgânicos"
-          }
-        ]
-      },
-      {
-        "id": 11,
-        "name": "Brócolis",
-        "description": "Brócolis cultivado de forma orgânica em agricultura familiar",
-        "price": 4.99,
-        "image": "https://drive.google.com/file/d/1XIDklEEhEbyK5JCo96RgwMTa2A6N5MRi/view?usp=share_link",
-        "stock": 30,
-        "categories": [
-          {
-            "id": 1,
-            "name": "Verduras e Legumes"
-          },
-          {
-            "id": 2,
-            "name": "Produtos Orgânicos"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": 1,
     "name": "Mercado Verde",
     "address": "Rua do Mercadão, 20",
     "city": "São Paulo",
     "phone": "+55 (11) 1234-5628",
-    "products": [
+    "categories": [
       {
-        "id": 1,
-        "name": "Mel orgânico",
-        "description": "Mel produzido de maneira sustentável e sem agrotóxicos",
-        "price": 15.50,
-        "image": "https://drive.google.com/file/d/1Ww68gCwkJPZJhDaqoDaHw0b3BWCeqCYT/view?usp=share_link",
-        "stock": 100,
-        "categories": [
+        "id": 4,
+        "name": "Produtos Naturais",
+        "products": [
           {
             "id": 1,
-            "name": "Produtos Naturais"
+            "name": "Mel orgânico",
+            "description": "Mel produzido de maneira sustentável e sem agrotóxicos",
+            "price": 15.50,
+            "image": "https://drive.google.com/file/d/1Ww68gCwkJPZJhDaqoDaHw0b3BWCeqCYT/view?usp=share_link",
+            "stock": 100
           }
         ]
       }
@@ -91,18 +28,18 @@
     "address": "Rua da Feira, 201",
     "city": "São Paulo",
     "phone": "+55 (11) 1434-5628",
-    "products": [
+    "categories": [
       {
-        "id": 2,
-        "name": "Geleia de frutas vermelhas",
-        "description": "Geleia produzida com frutas orgânicas colhidas na agricultura familiar",
-        "price": 10.90,
-        "image": "https://drive.google.com/file/d/1Kdc-XuMUdMB6juIDL0A08B9iNfDJApYF/view?usp=sharing",
-        "stock": 50,
-        "categories": [
+        "id": 4,
+        "name": "Produtos Naturais",
+        "products": [
           {
-            "id": 1,
-            "name": "Produtos Naturais"
+            "id": 2,
+            "name": "Geleia de frutas vermelhas",
+            "description": "Geleia produzida com frutas orgânicas colhidas na agricultura familiar",
+            "price": 10.90,
+            "image": "https://drive.google.com/file/d/1Kdc-XuMUdMB6juIDL0A08B9iNfDJApYF/view?usp=sharing",
+            "stock": 50
           }
         ]
       }
@@ -114,18 +51,18 @@
     "address": "Roça dos Queijos, 122",
     "city": "São Paulo",
     "phone": "+55 (11) 1434-5613",
-    "products": [
+    "categories": [
       {
-        "id": 3,
-        "name": "Queijo artesanal",
-        "description": "Queijo produzido de maneira artesanal com leite de vacas criadas soltas na pastagem",
-        "price": 22.00,
-        "image": "https://drive.google.com/file/d/1ptF87NxLibmbG_WKlNwn_TOHKrmMQP2R/view?usp=sharing",
-        "stock": 30,
-        "categories": [
+        "id": 5,
+        "name": "Agricultura Familiar",
+        "products": [
           {
-            "id": 2,
-            "name": "Agricultura Familiar"
+            "id": 3,
+            "name": "Queijo artesanal",
+            "description": "Queijo produzido de maneira artesanal com leite de vacas criadas soltas na pastagem",
+            "price": 22.00,
+            "image": "https://drive.google.com/file/d/1ptF87NxLibmbG_WKlNwn_TOHKrmMQP2R/view?usp=sharing",
+            "stock": 30
           }
         ]
       }
@@ -137,18 +74,18 @@
     "address": "Rua do Padeiro, 542",
     "city": "São Paulo",
     "phone": "+55 (11) 5244-5613",
-    "products": [
+    "categories": [
       {
         "id": 4,
-        "name": "Pão integral",
-        "description": "Pão integral produzido com farinha orgânica e fermentação natural",
-        "price": 6.50,
-        "image": "https://drive.google.com/file/d/1BQLCJlOXBZQ1gcs6UmhcMMJyz2QSTvlh/view?usp=share_link",
-        "stock": 80,
-        "categories": [
+        "name": "Produtos Naturais",
+        "products": [
           {
-            "id": 1,
-            "name": "Produtos Naturais"
+            "id": 4,
+            "name": "Pão integral",
+            "description": "Pão integral produzido com farinha orgânica e fermentação natural",
+            "price": 6.50,
+            "image": "https://drive.google.com/file/d/1BQLCJlOXBZQ1gcs6UmhcMMJyz2QSTvlh/view?usp=share_link",
+            "stock": 80
           }
         ]
       }
@@ -160,18 +97,18 @@
     "address": "Rua da Feira, 241",
     "city": "São Paulo",
     "phone": "+55 (11) 5124-5613",
-    "products": [
+    "categories": [
       {
         "id": 5,
-        "name": "Tomate orgânico",
-        "description": "Tomate produzido de maneira sustentável e sem agrotóxicos",
-        "price": 3.20,
-        "image": "https://drive.google.com/file/d/189JCKqP3cbtHRhaxzHoTgT5OsrCyYG7i/view?usp=sharing",
-        "stock": 120,
-        "categories": [
+        "name": "Agricultura Familiar",
+        "products": [
           {
-            "id": 2,
-            "name": "Agricultura Familiar"
+            "id": 5,
+            "name": "Tomate orgânico",
+            "description": "Tomate produzido de maneira sustentável e sem agrotóxicos",
+            "price": 3.20,
+            "image": "https://drive.google.com/file/d/189JCKqP3cbtHRhaxzHoTgT5OsrCyYG7i/view?usp=sharing",
+            "stock": 120
           }
         ]
       }
@@ -183,22 +120,32 @@
     "address": "Rua das Flores, 412",
     "city": "São Paulo",
     "phone": "+55 (11) 5124-5435",
-    "products": [
+    "categories": [
+      {
+        "id": 7,
+        "name": "Queijos",
+        "products": [
+          {
+            "id": 6,
+            "name": "Queijo minas artesanal",
+            "description": "Queijo minas artesanal produzido por pequenos produtores da região.",
+            "price": 25.0,
+            "image": "https://drive.google.com/file/d/1FNPQEwNAIhdX0Z0yIj3aut0NpzPu9b_k/view?usp=share_link",
+            "stock": 10
+          }
+        ]
+      },
       {
         "id": 6,
-        "name": "Queijo minas artesanal",
-        "description": "Queijo minas artesanal produzido por pequenos produtores da região.",
-        "price": 25.0,
-        "image": "https://drive.google.com/file/d/1FNPQEwNAIhdX0Z0yIj3aut0NpzPu9b_k/view?usp=share_link",
-        "stock": 10,
-        "categories": [
+        "name": "Produtos artesanais",
+        "products": [
           {
-            "id": 3,
-            "name": "Queijos"
-          },
-          {
-            "id": 4,
-            "name": "Produtos artesanais"
+            "id": 6,
+            "name": "Queijo minas artesanal",
+            "description": "Queijo minas artesanal produzido por pequenos produtores da região.",
+            "price": 25.0,
+            "image": "https://drive.google.com/file/d/1FNPQEwNAIhdX0Z0yIj3aut0NpzPu9b_k/view?usp=share_link",
+            "stock": 10
           }
         ]
       }
@@ -210,22 +157,107 @@
     "address": "Estrada da Roça, s/n",
     "city": "São Paulo",
     "phone": "+55 (11) 5452-5613",
-    "products": [
+    "categories": [
       {
-        "id": 7,
-        "name": "Geleia de frutas vermelhas",
-        "description": "Geleia de frutas vermelhas feita com frutas frescas e sem adição de conservantes.",
-        "price": 15.0,
-        "image": "https://drive.google.com/file/d/1TpUtB27ZdqVuTRA_Yc92UmXo8xHTfcTs/view?usp=share_link",
-        "stock": 20,
-        "categories": [
+        "id": 8,
+        "name": "Geleias",
+        "products": [
           {
-            "id": 5,
-            "name": "Geleias"
+            "id": 7,
+            "name": "Geleia de frutas vermelhas",
+            "description": "Geleia de frutas vermelhas feita com frutas frescas e sem adição de conservantes.",
+            "price": 15.0,
+            "image": "https://drive.google.com/file/d/1TpUtB27ZdqVuTRA_Yc92UmXo8xHTfcTs/view?usp=share_link",
+            "stock": 20
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Produtos naturais",
+        "products": [
+          {
+            "id": 7,
+            "name": "Geleia de frutas vermelhas",
+            "description": "Geleia de frutas vermelhas feita com frutas frescas e sem adição de conservantes.",
+            "price": 15.0,
+            "image": "https://drive.google.com/file/d/1TpUtB27ZdqVuTRA_Yc92UmXo8xHTfcTs/view?usp=share_link",
+            "stock": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Feira da Agricultura Familiar",
+    "address": "Rua da Agricultura, 514",
+    "city": "São Paulo",
+    "phone": "+55 (11) 5146-7684",
+    "categories": [
+      {
+        "id": 1,
+        "name": "Frutas",
+        "products": [
+          {
+            "id": 8,
+            "name": "Tomate Cereja Orgânico",
+            "description": "Tomate cereja orgânico cultivado sem agrotóxicos.",
+            "price": 5.99,
+            "image": "https://drive.google.com/file/d/1QGLMORGCSafLJW4TKmSTU0yhmzsw5k3j/view?usp=share_link",
+            "stock": 100
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Orgânicos",
+        "products": [
+          {
+            "id": 8,
+            "name": "Tomate Cereja Orgânico",
+            "description": "Tomate cereja orgânico cultivado sem agrotóxicos.",
+            "price": 5.99,
+            "image": "https://drive.google.com/file/d/1QGLMORGCSafLJW4TKmSTU0yhmzsw5k3j/view?usp=share_link",
+            "stock": 100
           },
           {
-            "id": 6,
-            "name": "Produtos naturais"
+            "id": 10,
+            "name": "Alface Americana",
+            "description": "Alface americana cultivada de forma orgânica em agricultura familiar",
+            "price": 2.99,
+            "image": "https://drive.google.com/file/d/1xTHRpKhmmW1Y-uKpltQ0T30S_LlFWufp/view?usp=share_link",
+            "stock": 50
+          },
+          {
+            "id": 11,
+            "name": "Brócolis",
+            "description": "Brócolis cultivado de forma orgânica em agricultura familiar",
+            "price": 4.99,
+            "image": "https://drive.google.com/file/d/1XIDklEEhEbyK5JCo96RgwMTa2A6N5MRi/view?usp=share_link",
+            "stock": 30
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Verduras e Legumes",
+        "products": [
+          {
+            "id": 10,
+            "name": "Alface Americana",
+            "description": "Alface americana cultivada de forma orgânica em agricultura familiar",
+            "price": 2.99,
+            "image": "https://drive.google.com/file/d/1xTHRpKhmmW1Y-uKpltQ0T30S_LlFWufp/view?usp=share_link",
+            "stock": 50
+          },
+          {
+            "id": 11,
+            "name": "Brócolis",
+            "description": "Brócolis cultivado de forma orgânica em agricultura familiar",
+            "price": 4.99,
+            "image": "https://drive.google.com/file/d/1XIDklEEhEbyK5JCo96RgwMTa2A6N5MRi/view?usp=share_link",
+            "stock": 30
           }
         ]
       }
@@ -237,22 +269,32 @@
     "address": "Rua da Agricultura, 789",
     "city": "São Paulo",
     "phone": "+55 (11) 4312-1543",
-    "products": [
+    "categories": [
       {
-        "id": 9,
-        "name": "Café Orgânico",
-        "description": "Café orgânico produzido em pequenas propriedades familiares.",
-        "price": 14.99,
-        "image": "https://drive.google.com/file/d/1llmQLuRyUu9QVeUMFR-D8-VOBENOjoYU/view?usp=share_link",
-        "stock": 80,
-        "categories": [
+        "id": 5,
+        "name": "Cafés",
+        "products": [
           {
-            "id": 5,
-            "name": "Cafés"
-          },
+            "id": 9,
+            "name": "Café Orgânico",
+            "description": "Café orgânico produzido em pequenas propriedades familiares.",
+            "price": 14.99,
+            "image": "https://drive.google.com/file/d/1llmQLuRyUu9QVeUMFR-D8-VOBENOjoYU/view?usp=share_link",
+            "stock": 80
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Orgânicos",
+        "products": [
           {
-            "id": 3,
-            "name": "Orgânicos"
+            "id": 9,
+            "name": "Café Orgânico",
+            "description": "Café orgânico produzido em pequenas propriedades familiares.",
+            "price": 14.99,
+            "image": "https://drive.google.com/file/d/1llmQLuRyUu9QVeUMFR-D8-VOBENOjoYU/view?usp=share_link",
+            "stock": 80
           }
         ]
       }
@@ -264,22 +306,32 @@
     "address": "Avenida das Árvores, 456",
     "city": "São Paulo",
     "phone": "+55 (11) 9876-5432",
-    "products": [
+    "categories": [
       {
-        "id": 12,
-        "name": "Maçã Gala",
-        "description": "Maçãs gala cultivadas de forma orgânica em agricultura familiar",
-        "price": 6.99,
-        "image": "https://drive.google.com/file/d/1whWV_aBvUiSeJknSPNVHJckUqHJUjQ-p/view?usp=share_link",
-        "stock": 20,
-        "categories": [
+        "id": 1,
+        "name": "Frutas",
+        "products": [
           {
-            "id": 3,
-            "name": "Frutas"
-          },
+            "id": 12,
+            "name": "Maçã Gala",
+            "description": "Maçãs gala cultivadas de forma orgânica em agricultura familiar",
+            "price": 6.99,
+            "image": "https://drive.google.com/file/d/1whWV_aBvUiSeJknSPNVHJckUqHJUjQ-p/view?usp=share_link",
+            "stock": 20
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Orgânicos",
+        "products": [
           {
-            "id": 2,
-            "name": "Produtos Orgânicos"
+            "id": 12,
+            "name": "Maçã Gala",
+            "description": "Maçãs gala cultivadas de forma orgânica em agricultura familiar",
+            "price": 6.99,
+            "image": "https://drive.google.com/file/d/1whWV_aBvUiSeJknSPNVHJckUqHJUjQ-p/view?usp=share_link",
+            "stock": 20
           }
         ]
       }
