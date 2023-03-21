@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/api/v1/products")
 public class ProductController {
     @GetMapping(path="/mock",  produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody Object getMockProducts() throws IOException {
