@@ -1,5 +1,6 @@
 package br.com.fiap.cidade.controller;
 
+import br.com.fiap.cidade.dto.AddressDTO;
 import br.com.fiap.cidade.model.Adress;
 import br.com.fiap.cidade.service.AdressService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,8 +25,8 @@ public class AdressController {
         return new ResponseEntity<>(service.create(adress, jwt), HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<Adress> update(@PathVariable("id") Long id,@RequestBody Adress adress) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Adress> update(@PathVariable("id") Long id,@RequestBody AddressDTO adress) {
         try{
             return new ResponseEntity<>(service.update(id,adress), HttpStatus.OK);
         }catch(NoSuchElementException nsee){
