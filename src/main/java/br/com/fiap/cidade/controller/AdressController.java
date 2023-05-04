@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/api/v1/adress")
+@RequestMapping("/api/v1/address")
 public class AdressController {
     @Autowired
     private AdressService service;
