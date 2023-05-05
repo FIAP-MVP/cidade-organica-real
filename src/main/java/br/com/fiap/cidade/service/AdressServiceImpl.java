@@ -1,6 +1,8 @@
 package br.com.fiap.cidade.service;
 
+import br.com.fiap.cidade.dto.AddressDTO;
 import br.com.fiap.cidade.model.Adress;
+import br.com.fiap.cidade.model.User;
 import br.com.fiap.cidade.repository.AdressRepository;
 import br.com.fiap.cidade.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -32,12 +34,28 @@ public class AdressServiceImpl implements AdressService {
     }
 
     @Override
-    public Adress update(Long id,Adress newAdress) {
-        return repository.findById(Math.toIntExact(id)).map(adress -> {
-            adress = newAdress;
-            return repository.save(adress);
-        }).orElseThrow(() -> new EntityNotFoundException("Adress not found"));
+    public Adress update(Long id, AddressDTO newAdress) {
+        Adress address = findById(id);
+        if((!newAdress.getCep().equals(address.getCep()))&& (newAdress.getCep() != null)){
+            address.setCep(newAdress.getCep());
+        }
+        if((!newAdress.getNumber().equals(address.getNumber()))&& (newAdress.getNumber() != null)){
+            address.setNumber(newAdress.getNumber());
+        }
+        if((!newAdress.getComplement().equals(address.getComplement()))&& (newAdress.getComplement() != null)){
+            address.setComplement(newAdress.getComplement());
+        }
+        if((!newAdress.getCity().equals(address.getCity()))&& (newAdress.getCity() != null)){
+            address.setCity(newAdress.getCity());
+        }
+        if((!newAdress.getStreet().equals(address.getStreet()))&& (newAdress.getStreet() != null)){
+            address.setStreet(newAdress.getStreet());
+        }
+        if((!newAdress.getIdentifier().equals(address.getIdentifier()))&& (newAdress.getIdentifier() != null)){
+            address.setIdentifier(newAdress.getIdentifier());
+        }
 
+        return repository.save(address);
     }
 
     @Override

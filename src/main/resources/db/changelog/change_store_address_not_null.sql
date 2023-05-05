@@ -1,0 +1,1 @@
+ALTER TABLE `store` MODIFY COLUMN `address_id` BIGINT NULL;

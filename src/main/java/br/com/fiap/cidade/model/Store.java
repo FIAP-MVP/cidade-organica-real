@@ -2,10 +2,7 @@ package br.com.fiap.cidade.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
+@Getter
+@Setter
 @Table(name = "store")
 public class Store {
     @Id
@@ -25,9 +24,10 @@ public class Store {
     @Column(name = "cnpj")
     private String cnpj;
 
+    @Column(name = "description")
+    private String description;
     @OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="store")
     private Adress address;
-
     @Column(name = "name")
     private String name;
 
