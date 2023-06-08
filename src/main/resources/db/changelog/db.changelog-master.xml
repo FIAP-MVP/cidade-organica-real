@@ -94,4 +94,22 @@
         <sqlFile path="changelog/change_store_address_not_null.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="alter_store_user_id" author="Mattz">
+        <sqlFile path="changelog/alter_store_user_id.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="delete_product_category" author="Mattz">
+        <sqlFile path="changelog/delete_product_category.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="delete_category" author="Mattz">
+        <preConditions>
+            <tableExists tableName="category"/>
+        </preConditions>
+        <sqlFile path="changelog/delete_category.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+
+
+
 </databaseChangeLog>

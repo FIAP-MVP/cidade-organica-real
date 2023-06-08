@@ -37,6 +37,10 @@ public class Store {
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> products = new ArrayList<>();
 
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User owner;
+
     // métodos para adicionar e remover produtos
     public void addProduct(Product product) {
         products.add(product);

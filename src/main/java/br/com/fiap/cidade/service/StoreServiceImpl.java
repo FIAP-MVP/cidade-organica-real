@@ -4,29 +4,41 @@ import br.com.fiap.cidade.dto.StoreDTO;
 import br.com.fiap.cidade.model.Store;
 import br.com.fiap.cidade.model.User;
 import br.com.fiap.cidade.repository.StoreRepository;
+import br.com.fiap.cidade.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StoreServiceImpl  extends JwtService implements StoreService{
 
     private final StoreRepository repository;
+    private final UserRepository userRepository;
 
-    public StoreServiceImpl(StoreRepository repository) {
-        this.repository = repository;
+
+    public StoreServiceImpl(StoreRepository repository, UserRepository userRepository) {
+        this.repository = repository; this.userRepository = userRepository;
     }
+
+    private final JwtService jwtService = new JwtService();
+
 
 
     @Override
-    public Store create(StoreDTO storeDTO) {
+    public Store create(StoreDTO storeDTO, String userId) {
+        Long id = jwtService.getUserIdFromToken(userId);
         Store store = new Store();
-        store.setName(storeDTO.getName());
-        store.setCnpj(storeDTO.getCnpj());
-        store.setDescription(storeDTO.getDescription());
-        return repository.save(store);
+        userRepository.findById(Math.toIntExact(id)).map(user -> {
+            store.setName(storeDTO.getName());
+            store.setCnpj(storeDTO.getCnpj());
+            store.setDescription(storeDTO.getDescription());
+            store.setOwner(user);
+            return repository.save(store);
+        });
+        return store;
     }
 
 

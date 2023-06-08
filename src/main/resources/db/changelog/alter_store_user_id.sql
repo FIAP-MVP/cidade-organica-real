@@ -1,0 +1,2 @@
+ALTER TABLE store MODIFY COLUMN user_id BIGINT NOT NULL;
+ALTER TABLE `store` ADD CONSTRAINT `fk_owner` FOREIGN KEY (user_id) REFERENCES `user`(id);

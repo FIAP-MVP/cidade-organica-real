@@ -27,7 +27,9 @@ public class StoreController {
 
     @PostMapping
     public ResponseEntity<Store> save(HttpServletRequest request, @RequestBody StoreDTO store) {
-        return new ResponseEntity<>(service.create(store), HttpStatus.OK);
+        String authHeader = request.getHeader("Authorization");
+        String jwt = authHeader.substring(7);
+        return new ResponseEntity<>(service.create(store, jwt), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

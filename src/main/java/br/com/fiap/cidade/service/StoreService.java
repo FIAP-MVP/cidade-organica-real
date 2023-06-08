@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface StoreService {
 
-    Store create(StoreDTO store);
+    Store create(StoreDTO store, String userId);
 
 
     Store update(Long id, StoreDTO newStore) throws IllegalAccessException;

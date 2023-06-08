@@ -37,13 +37,6 @@ public class Product {
     @Column(name = "stock")
     private Integer stock;
 
-    @ManyToMany
-    @JoinTable(
-            name = "product_category",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private List<Category> categories;
-
     @ManyToOne
     @JoinColumn(name = "store_id")
     private Store store;
