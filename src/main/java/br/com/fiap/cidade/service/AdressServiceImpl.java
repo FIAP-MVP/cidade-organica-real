@@ -1,8 +1,7 @@
 package br.com.fiap.cidade.service;
 
 import br.com.fiap.cidade.dto.AddressDTO;
-import br.com.fiap.cidade.model.Adress;
-import br.com.fiap.cidade.model.User;
+import br.com.fiap.cidade.model.Address;
 import br.com.fiap.cidade.repository.AdressRepository;
 import br.com.fiap.cidade.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -23,19 +22,19 @@ public class AdressServiceImpl implements AdressService {
 
 
     @Override
-    public Adress create(Adress adress, String token){
+    public Address create(Address address, String token){
         Long userId = jwtService.getUserIdFromToken(token);
         userRepository.findById(Math.toIntExact(userId)).map(user
         -> {
-            adress.setUser(user);
-            return repository.save(adress);
+            address.setUser(user);
+            return repository.save(address);
         }).orElseThrow(() -> new EntityNotFoundException("User not found"));
-        return adress;
+        return address;
     }
 
     @Override
-    public Adress update(Long id, AddressDTO newAdress) {
-        Adress address = findById(id);
+    public Address update(Long id, AddressDTO newAdress) {
+        Address address = findById(id);
         if((!newAdress.getCep().equals(address.getCep()))&& (newAdress.getCep() != null)){
             address.setCep(newAdress.getCep());
         }
@@ -59,12 +58,12 @@ public class AdressServiceImpl implements AdressService {
     }
 
     @Override
-    public Adress findById(Long id) {
+    public Address findById(Long id) {
         return repository.findById(Math.toIntExact(id)).orElseThrow(() -> new EntityNotFoundException("Adress not found"));
     }
 
     @Override
-    public List<Adress> findbyUser(String token){
+    public List<Address> findbyUser(String token){
         Long userId = jwtService.getUserIdFromToken(token);
         return repository.findByUserId(userId);
     }

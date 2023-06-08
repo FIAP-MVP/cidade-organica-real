@@ -2,17 +2,16 @@ package br.com.fiap.cidade.service;
 
 
 import br.com.fiap.cidade.dto.AddressDTO;
-import br.com.fiap.cidade.model.Adress;
+import br.com.fiap.cidade.model.Address;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface AdressService {
 
-    Adress create(Adress address, String token);
+    Address create(Address address, String token);
 
-    Adress update(Long id, AddressDTO newAdress);
-    Adress findById(Long id);
-    List<Adress> findbyUser(String token);
+    Address update(Long id, AddressDTO newAdress);
+    Address findById(Long id);
+    List<Address> findbyUser(String token);
     void delete(Long id);
 }

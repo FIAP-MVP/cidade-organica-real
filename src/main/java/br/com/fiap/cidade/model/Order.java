@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -40,7 +39,7 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_address_id")
-    private Adress deliveryAddress;
+    private Address deliveryAddress;
 
     @Column(name = "creation_date")
     private LocalDateTime creationDate;

@@ -3,7 +3,6 @@ package br.com.fiap.cidade.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -14,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Entity
 @Table(name = "address")
-public class Adress {
+public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

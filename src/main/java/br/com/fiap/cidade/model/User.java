@@ -42,7 +42,7 @@ public class  User implements UserDetails {
 
     @JsonManagedReference
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="user")
-    private List<Adress> adresses;
+    private List<Address> addresses;
 
     @Column(name = "image")
     private String image;
