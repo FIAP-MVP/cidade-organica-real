@@ -1,5 +1,6 @@
 package br.com.fiap.cidade.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.AllArgsConstructor;
@@ -37,6 +38,7 @@ public class Product {
     @Column(name = "stock")
     private Integer stock;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "store_id")
     private Store store;

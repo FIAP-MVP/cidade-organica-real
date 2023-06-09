@@ -1,5 +1,6 @@
 package br.com.fiap.cidade.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -34,12 +35,14 @@ public class Store {
     @Column(name = "image")
     private String image;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> products = new ArrayList<>();
-
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User owner;
+
 
     // métodos para adicionar e remover produtos
     public void addProduct(Product product) {
@@ -51,5 +54,6 @@ public class Store {
         products.remove(product);
         product.setStore(null);
     }
+
 
 }

@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface AdressRepository extends JpaRepository<Adress, Integer> {
+public interface AdressRepository extends JpaRepository<Adress, Long> {
 
     @Query(value = "SELECT * FROM address WHERE user_id=?1",  nativeQuery = true)
     List<Adress> findByUserId(@Param("user_id") Long userId);

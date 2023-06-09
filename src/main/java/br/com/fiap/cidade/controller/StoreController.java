@@ -33,9 +33,11 @@ public class StoreController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Store> update(@PathVariable("id") Long id,@RequestBody StoreDTO store) {
+    public ResponseEntity<Store> update(HttpServletRequest request,@PathVariable("id") Long id,@RequestBody StoreDTO store) {
         try{
-            return new ResponseEntity<>(service.update(id,store), HttpStatus.OK);
+            String authHeader = request.getHeader("Authorization");
+            String jwt = authHeader.substring(7);
+            return new ResponseEntity<>(service.update(id,store,jwt), HttpStatus.OK);
         }catch(NoSuchElementException nsee){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (IllegalAccessException e) {
@@ -44,9 +46,11 @@ public class StoreController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<HttpStatus> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<HttpStatus> delete(HttpServletRequest request,@PathVariable("id") Long id) {
         try{
-            service.delete(id);
+            String authHeader = request.getHeader("Authorization");
+            String jwt = authHeader.substring(7);
+            service.delete(id,jwt);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch(NoSuchElementException nsee){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -68,10 +72,12 @@ public class StoreController {
     }
 
     @PatchMapping("/{id}/uploadImage")
-    public ResponseEntity<Void> uploadImage(@PathVariable("id") Long id, @RequestParam("image") MultipartFile image) throws IOException {
+    public ResponseEntity<Void> uploadImage(HttpServletRequest request,@PathVariable("id") Long id, @RequestParam("image") MultipartFile image) throws IOException {
         try {
+            String authHeader = request.getHeader("Authorization");
+            String jwt = authHeader.substring(7);
             String imageBase64 = Base64.getEncoder().encodeToString(image.getBytes());
-            service.uploadImage(id,imageBase64);
+            service.uploadImage(id,imageBase64,jwt);
             return ResponseEntity.ok().build();
         } catch (NoSuchElementException nsee) {
             return ResponseEntity.notFound().build();

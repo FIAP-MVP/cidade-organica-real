@@ -60,7 +60,7 @@ public class AdressServiceImpl implements AdressService {
 
     @Override
     public Adress findById(Long id) {
-        return repository.findById(Math.toIntExact(id)).orElseThrow(() -> new EntityNotFoundException("Adress not found"));
+        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException("Adress not found"));
     }
 
     @Override
@@ -72,7 +72,7 @@ public class AdressServiceImpl implements AdressService {
     @Override
     public void delete(Long id) {
         try{
-            repository.deleteById(Math.toIntExact(id));
+            repository.deleteById(id);
         }catch(NoSuchElementException ex){
             throw new EntityNotFoundException("Adress not found");
         }

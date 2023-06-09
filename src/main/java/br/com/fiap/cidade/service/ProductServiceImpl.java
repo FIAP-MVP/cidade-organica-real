@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService{
         product.setDescription(newProduct.getDescription());
         product.setPrice(newProduct.getPrice());
         product.setStock(newProduct.getStock());
-        storeRepository.findById(Math.toIntExact(idStore)).map(store
+        storeRepository.findById(idStore).map(store
                 -> {
             product.setStore(store);
             return productRepository.save(product);
@@ -56,14 +56,14 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Product findById(Long id) {
-        return productRepository.findById(Math.toIntExact(id)).orElseThrow(() -> new EntityNotFoundException("Product not found"));
+        return productRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Product not found"));
     }
 
 
     @Override
     public void delete(Long id, Long idStore, String token) {
         try{
-            productRepository.deleteById(Math.toIntExact(id));
+            productRepository.deleteById(id);
         }catch(NoSuchElementException ex){
             throw new EntityNotFoundException("Product not found");
         }

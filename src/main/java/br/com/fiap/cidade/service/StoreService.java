@@ -11,15 +11,15 @@ public interface StoreService {
     Store create(StoreDTO store, String userId);
 
 
-    Store update(Long id, StoreDTO newStore) throws IllegalAccessException;
+    Store update(Long id, StoreDTO newStore, String userId) throws IllegalAccessException;
 
     Store findById(Long id);
 
 
     List<Store> findAll();
-    void delete(Long id);
+    void delete(Long id, String userId);
 
-    Store uploadImage(Long id, String image);
+    Store uploadImage(Long id, String image, String userId);
 
 
 }
