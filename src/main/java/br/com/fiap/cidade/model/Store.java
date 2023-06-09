@@ -1,6 +1,5 @@
 package br.com.fiap.cidade.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,7 +26,7 @@ public class Store {
     @Column(name = "description")
     private String description;
     @OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="store")
-    private Adress address;
+    private Address address;
     @Column(name = "name")
     private String name;
 
